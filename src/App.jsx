@@ -1,9 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import CreateArticle from "./pages/CreateArticle";
+
 function App() {
   return (
-    <main className="p-8">
-      <h1 className="text-4xl font-bold">Developemnt Platforms</h1>
-      <p>Article platform </p>
-    </main>
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/create" element={<CreateArticle />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
