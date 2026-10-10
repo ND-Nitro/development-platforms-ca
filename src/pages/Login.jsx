@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -21,7 +24,11 @@ function Login() {
       return;
     }
 
-    setMessage("Login successful!");
+    setMessage("Login successful! Redirecting to Articles page...");
+
+    setTimeout(() => {
+      navigate("/", { replace: true });
+    }, 1500);
   };
 
   return (
