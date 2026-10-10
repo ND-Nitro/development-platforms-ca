@@ -23,6 +23,14 @@ function Navbar() {
     };
   }, []);
 
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error("Error logging out:", error.message);
+    }
+  };
+
   return (
     <nav className="border-b border-gray-200 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between p-4">
@@ -36,7 +44,13 @@ function Navbar() {
           {session ? (
             <>
               <Link to="/create">Create Article</Link>
-              <button type="button">Logout</button>
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="cursor-pointer"
+              >
+                Logout
+              </button>
             </>
           ) : (
             <>
