@@ -33,12 +33,12 @@ function Navbar() {
 
   return (
     <nav className="border-b border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between p-4">
+      <div className="mx-auto flex max-w-6xl flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between">
         <Link to="/" className="text-xl font-bold">
           ArticleHub
         </Link>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <Link to="/">Articles</Link>
 
           {session ? (
